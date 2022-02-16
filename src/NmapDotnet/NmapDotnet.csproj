@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <Description>.NET wrapper for Nmap, an open source utility for network discovery and security auditing</Description>
+    <RepositoryUrl>https://github.com/christoskaltsas/nmap-dotnet</RepositoryUrl>
+    <PackageTags>nmap;dotnet;sdk;network-discovery;security-auditing</PackageTags>
+    <Authors>Christos Kaltsas</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CliWrap" Version="3.4.1" />
+  </ItemGroup>
+</Project>
