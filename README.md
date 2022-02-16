@@ -12,6 +12,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Commits][commits-shield]][commits-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -99,4 +100,5 @@ TBD
 [issues-url]: https://github.com/christoskaltsas/nmap-dotnet/issues
 [license-shield]: https://img.shields.io/github/license/christoskaltsas/nmap-dotnet.svg?style=for-the-badge
 [license-url]: https://github.com/christoskaltsas/nmap-dotnet/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[commits-shield]: https://img.shields.io/github/commit-activity/m/christoskaltsas/nmap-dotnet?color=orange&style=for-the-badge
+[commits-url]: https://github.com/christoskaltsas/nmap-dotnet/commits/main
