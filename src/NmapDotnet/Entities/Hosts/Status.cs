@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// Status represents a host's status.
+    /// </summary>
     public class Status
     {
         [XmlAttribute("state")]

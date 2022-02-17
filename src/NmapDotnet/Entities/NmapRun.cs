@@ -5,6 +5,9 @@ using NmapDotnet.Entities.Scripts;
 
 namespace NmapDotnet.Entities
 {
+    /// <summary>
+    /// NmapRun represents a nmap scan result.
+    /// </summary>
     [XmlRoot("nmaprun")]
     public class NmapRun
     {

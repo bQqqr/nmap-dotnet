@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities
 {
+    /// <summary>
+    /// TaskProgress contains information about the progression of a task.
+    /// </summary>
     public class TaskProgress
     {
         [XmlAttribute("specification")]

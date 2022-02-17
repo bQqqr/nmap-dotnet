@@ -2,6 +2,10 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// State contains information about a given port's status
+    /// State will be open, closed, etc.
+    /// </summary>
     public class State
     {
         [XmlAttribute("state")]

@@ -7,22 +7,20 @@ using NmapDotnet.Entities;
 
 namespace NmapDotnet
 {
-    public class Nmap : IEnviromentSetupStage, IArgumentSelectionStage, IExecutionStage
+    public class Nmap : ISetupStage, IExecutionStage
     {
-        public Enviroment Env { get; set; } = new Enviroment();
-        public Arguments Args { get; set; } = new Arguments();
+        public Configuration Config { get; }
+
+        public Nmap()
+        {
+            Config = new Configuration();
+        }
 
         public static Nmap Scan() => new Nmap();
 
-        public IArgumentSelectionStage WithEnviroment(Action<Enviroment> env)
+        public IExecutionStage WithOptions(Action<Configuration> config)
         {
-            env.Invoke(Env);
-            return this;
-        }
-
-        public IExecutionStage WithArguments(Action<Arguments> args)
-        {
-            args.Invoke(Args);
+            config.Invoke(Config);
             return this;
         }
 
@@ -31,9 +29,9 @@ namespace NmapDotnet
             var stdOut = new StringBuilder();
             var stdErr = new StringBuilder();
 
-            var result = await Cli.Wrap(Env.NmapExecutablePath)
-                .WithArguments("-oX -" + " " + Args.Options)
-                .WithWorkingDirectory(Env.WorkingDirectoryPath)
+            var result = await Cli.Wrap(Config.NmapExecutablePath)
+                .WithArguments("-oX -" + " " + Config.Arguments)
+                .WithWorkingDirectory(Config.WorkingDirectoryPath)
                 .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOut))
                 .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErr))
                 .ExecuteAsync();
@@ -42,9 +40,17 @@ namespace NmapDotnet
 
             using var reader = new StringReader(stdOut.ToString());
 
-            var nmapRun = (NmapRun?)serializer.Deserialize(reader);
+            var nmapRun = (NmapRun?)serializer
+                .Deserialize(reader);
 
-            return new Result { Output = stdOut.ToString(), Errors = stdErr.ToString(), Run = nmapRun };
+            return new Result
+            {
+                Output = stdOut.ToString(),
+                Error = stdErr.ToString(),
+                Run = nmapRun
+            };
         }
+
+
     }
 }

@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// Trace represents the trace to a host, including the hops.
+    /// </summary>
     public class Trace
     {
         [XmlAttribute("proto")]
@@ -14,6 +17,9 @@ namespace NmapDotnet.Entities.Hosts
         public List<Hop>? Hops { get; set; }
     }
 
+    /// <summary>
+    /// Hop is an IP hop to a host.
+    /// </summary>
     public class Hop
     {
         [XmlAttribute("ttl")]

@@ -4,6 +4,9 @@ using NmapDotnet.Entities.Scripts;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// Host represents a host that was scanned.
+    /// </summary>
     public class Host
     {
         [XmlElement("distance")]

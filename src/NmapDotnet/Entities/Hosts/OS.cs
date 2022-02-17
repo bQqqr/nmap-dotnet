@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// OS contains the fingerprinted operating system for a host.
+    /// </summary>
     public class OS
     {
         [XmlElement("portsused")]
@@ -14,6 +17,9 @@ namespace NmapDotnet.Entities.Hosts
         public List<OSFingerprint>? OSFingerprints { get; set; }
     }
 
+    /// <summary>
+    /// PortUsed is the port used to fingerprint an operating system.
+    /// </summary>
     public class PortUsed
     {
         [XmlAttribute("state")]
@@ -26,6 +32,9 @@ namespace NmapDotnet.Entities.Hosts
         public int ID { get; set; }
     }
 
+    /// <summary>
+    /// OSMatch contains detailed information regarding an operating system fingerprint.
+    /// </summary>
     public class OSMatch
     {
         [XmlAttribute("name")]
@@ -39,9 +48,11 @@ namespace NmapDotnet.Entities.Hosts
 
         [XmlElement("osclass")]
         public List<OSClass>? Classes { get; set; }
-
     }
 
+    /// <summary>
+    /// OSClass contains vendor information about an operating system.
+    /// </summary>
     public class OSClass
     {
         [XmlAttribute("vendor")]
@@ -59,10 +70,13 @@ namespace NmapDotnet.Entities.Hosts
         [XmlAttribute("osfamily")]
         public string? Family { get; set; }
 
-        [XmlAttribute("cpe")]
+        [XmlElement("cpe")]
         public List<string>? CPEs { get; set; }
     }
 
+    /// <summary>
+    /// OSFingerprint is the actual fingerprint string of an operating system.
+    /// </summary>
     public class OSFingerprint
     {
         [XmlAttribute("fingerprint")]

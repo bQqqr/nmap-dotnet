@@ -1,13 +1,8 @@
 namespace NmapDotnet
 {
-    public interface IEnviromentSetupStage
+    public interface ISetupStage
     {
-        IArgumentSelectionStage WithEnviroment(Action<Enviroment> env);
-    }
-
-    public interface IArgumentSelectionStage
-    {
-        IExecutionStage WithArguments(Action<Arguments> args);
+        IExecutionStage WithOptions(Action<Configuration> config);
     }
 
     public interface IExecutionStage

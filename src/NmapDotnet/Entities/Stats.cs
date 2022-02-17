@@ -38,6 +38,9 @@ namespace NmapDotnet.Entities
         public string? ErrorMsg { get; set; }
     }
 
+    /// <summary>
+    /// HostStats contains the amount of up and down hosts and the total count.
+    /// </summary>
     public class HostStats
     {
         [XmlAttribute("up")]

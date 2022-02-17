@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// Times contains time statistics for an nmap scan.
+    /// </summary>
     public class Times
     {
         [XmlAttribute("srtt")]

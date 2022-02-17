@@ -2,6 +2,9 @@ using System.Xml.Serialization;
 
 namespace NmapDotnet.Entities.Hosts
 {
+    /// <summary>
+    /// Sequence represents a detected sequence.
+    /// </summary>
     public class Sequence
     {
         [XmlAttribute("class")]

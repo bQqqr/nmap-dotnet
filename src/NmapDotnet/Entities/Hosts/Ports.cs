@@ -13,6 +13,9 @@ namespace NmapDotnet.Entities.Hosts
         public List<Port>? Ports { get; set; }
     }
 
+    /// <summary>
+    /// Port contains all the information about a scanned port.
+    /// </summary>
     public class Port
     {
         [XmlAttribute("portid")]
@@ -30,16 +33,22 @@ namespace NmapDotnet.Entities.Hosts
         [XmlElement("state")]
         public State? State { get; set; }
 
-        [XmlElement("devicetype")]
+        [XmlElement("script")]
         public List<Script>? Scripts { get; set; }
     }
 
+    /// <summary>
+    /// Owner contains the name of a port's owner.
+    /// </summary>
     public class Owner
     {
         [XmlAttribute("name")]
         public string? Name { get; set; }
     }
 
+    /// <summary>
+    /// Service contains detailed information about a service on an open port.
+    /// </summary>
     public class Service
     {
         [XmlAttribute("devicetype")]
@@ -87,7 +96,7 @@ namespace NmapDotnet.Entities.Hosts
         [XmlAttribute("conf")]
         public int Confidence { get; set; }
 
-        [XmlAttribute("cpe")]
+        [XmlElement("cpe")]
         public List<string>? CPEs { get; set; }
     }
 
@@ -106,6 +115,10 @@ namespace NmapDotnet.Entities.Hosts
         public List<Reason>? Reasons { get; set; }
     }
 
+    /// <summary>
+    /// Reason represents a reason why a port is closed or filtered.
+    /// This won't be in the scan results unless WithReason is used.
+    /// </summary>
     public class Reason
     {
         [XmlAttribute("reason")]
